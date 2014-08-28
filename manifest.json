@@ -9,7 +9,14 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-    "storage"
+    "tabs", "http://*/*", "https://*/*"
   ],
+  "content_scripts": [
+      {
+        "matches": ["http://*/*", "https://*/*"],
+        "css": ["css/inject.css"],
+        "js": ["js_lib/jquery-1.11.1.js","js_lib/inject.js"]
+      }
+   ],
   "content_security_policy": "script-src 'self'; object-src 'self'"
 }
