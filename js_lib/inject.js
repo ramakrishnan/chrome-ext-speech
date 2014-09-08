@@ -27,7 +27,7 @@ function readText(e) {
     $("div, span, p, a")
       .off('click')
       .off('mousemove');
-    if ($(e.target).children().length < 3) {
+    if ($(e.target).children().length < 10) {
       var text = $.trim($(e.target).text());
       text = text.replace(/(\r\n|\n|\r|\t)/gm,"")
       playThis(text);
