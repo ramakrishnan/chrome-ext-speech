@@ -23,12 +23,14 @@ function selectDon(event) {
 
 function readText(e) {
   e.preventDefault();
-  if($(e.target).hasClass('js-selected')) {
+  var target = e.target
+  if($(target).hasClass('js-selected')) {
     $("div, span, p, a")
       .off('click')
       .off('mousemove');
-    if ($(e.target).children().length < 10) {
-      var text = $.trim($(e.target).text());
+    var brs = $(target).find('br').length
+    if (($(target).children().length - brs )< 10) {
+      var text = $.trim($(target).text());
       text = text.replace(/(\r\n|\n|\r|\t)/gm,"")
       playThis(text);
     } else {
