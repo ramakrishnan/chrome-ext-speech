@@ -31,6 +31,8 @@ function readText(e) {
     var brs = $(target).find('br').length
     if (($(target).children().length - brs )< 10) {
       var text = $.trim($(target).text());
+      text = text.replace(/(\.\n)/gm, ". ");
+      text = text.replace(/(\,\n)/gm, ", ");
       text = text.replace(/(\r\n|\n|\r|\t)/gm,"")
       playThis(text);
     } else {
@@ -48,6 +50,9 @@ function playThis(message) {
   for (i=0; i < blocks.length; i++) {
       if ((charCount + blocks[i].length ) < 100) {
         charCount = charCount + blocks[i].length;
+        if ( blocks[i].indexOf(",") == (blocks[i].length - 1) || blocks[i].indexOf(".") == (blocks[i].length - 1)) {
+          charCount = 100;
+        }
         longStr.push(blocks[i]);
       } else {
         i--;
