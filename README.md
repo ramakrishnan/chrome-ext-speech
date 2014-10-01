@@ -1,4 +1,4 @@
 chrome-ext-speech
 =================
 
-Convert text to speech using Google's translate API
+Convert text to speech using Google's translate API.
